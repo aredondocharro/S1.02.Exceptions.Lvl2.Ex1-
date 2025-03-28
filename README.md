@@ -1,8 +1,8 @@
-# 💻  Musical Instruments System
+# 💻  InputMismatchExceptions handle
 
 ## 📄 Description - Exercise Statement
 
-Create a class called "Entrada" (Input). This class should be used to control the different exceptions that may occur in Java when entering data via the keyboard using the Scanner class.
+Create a class called "Entrance". This class should be used to control the different exceptions that may occur in Java when entering data via the keyboard using the Scanner class.
 
 The first step is to instantiate an object of the Scanner class, and then create static methods to read different types of data from the keyboard.
 
@@ -12,20 +12,20 @@ If an exception occurs in any method, it should be handled, and the user should 
 All methods receive a String with the message to be displayed to the user (e.g., "Enter your age") and return the appropriate data entered by the user in each method (e.g., a byte with the user's age).
 
 Methods to implement, catching InputMismatchException:
-public static byte llegirByte(String missatge); → Read a byte
+public static byte readByte(String message); → Read a byte
 
-public static int llegirInt(String missatge); → Read an int
+public static int readInt(String message); → Read an int
 
-public static float llegirFloat(String missatge); → Read a float
+public static float readFloat(String message); → Read a float
 
-public static double llegirDouble(String missatge); → Read a double
+public static double readDouble(String message); → Read a double
 
 Methods to implement, catching a custom Exception:
-public static char llegirChar(String missatge); → Read a char
+public static char readChar(String message); → Read a char
 
-public static String llegirString(String missatge); → Read a String
+public static String readString(String message); → Read a String
 
-public static boolean llegirSiNo(String missatge); → If the user enters "s", return true; if they enter "n", return false.
+public static boolean readSiNo(String message); → If the user enters "s", return true; if they enter "n", return false.
 
 ## 💻 Technologies Used
 
