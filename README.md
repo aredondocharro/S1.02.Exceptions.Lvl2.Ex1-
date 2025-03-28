@@ -25,7 +25,7 @@ public static char readChar(String message); → Read a char
 
 public static String readString(String message); → Read a String
 
-public static boolean readSiNo(String message); → If the user enters "s", return true; if they enter "n", return false.
+public static boolean readSiNo(String message); → If the user enters "y", return true; if they enter "n", return false.
 
 ## 💻 Technologies Used
 
