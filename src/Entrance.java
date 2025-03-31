@@ -9,56 +9,129 @@ public class Entrance {
     }
 
     public static byte readByte(String message) {
-        System.out.println(message);
-        return sn.nextByte();
-
+        boolean byteOk = false;
+        byte entryByte = 0;
+        while (!byteOk) {
+            try {
+                System.out.println(message);
+                entryByte = sn.nextByte();
+                byteOk = true;
+            } catch (InputMismatchException e) {
+                System.out.println("Error: Insert a byte value");
+                Entrance.clearBuffer();
+            }
+        }
+        return entryByte;
     }
 
     public static int readInt(String message) {
-        System.out.println(message);
-        return sn.nextInt();
+        boolean intOk = false;
+        int entryInt = 0;
+        while (!intOk) {
+            try {
+                System.out.println(message);
+                entryInt = sn.nextInt();
+                intOk = true;
+            } catch (InputMismatchException e) {
+                System.out.println("Error: Insert a integer value");
+                Entrance.clearBuffer();
+            }
+        }
+        return entryInt;
     }
 
+
     public static float readFloat(String message) {
-        System.out.println(message);
-        return sn.nextFloat();
+        boolean floatOk = false;
+        float entryFloat = 0;
+        while (!floatOk) {
+            try {
+                System.out.println(message);
+                entryFloat = sn.nextFloat();
+                floatOk = true;
+            } catch (InputMismatchException e) {
+                System.out.println("Error: Insert a float value");
+                Entrance.clearBuffer();
+            }
+        }
+        return entryFloat;
     }
 
     public static double readDouble(String message) {
-        System.out.println(message);
-        return sn.nextDouble();
+        boolean doubleOk = false;
+        double entryDouble = 0.0;
+        while (!doubleOk) {
+            try {
+                System.out.println(message);
+                entryDouble = sn.nextDouble();
+                doubleOk = true;
+            } catch (InputMismatchException e) {
+                System.out.println("Error: Insert a double value");
+                Entrance.clearBuffer();
+            }
+        }
+        return entryDouble;
+
     }
 
     public static char readChar(String message) {
-        System.out.println(message);
-        String input = sn.nextLine().trim();
-
-        if (input.length() == 1 && Character.isLetter(input.charAt(0))) {
-            return input.charAt(0);
-        } else {
-            throw new InputMismatchException("Insert a single letter.");
+        boolean charOk = false;
+        String entryChar = "";
+        while (!charOk) {
+            try {
+                System.out.println(message);
+                entryChar = sn.nextLine().trim();
+                if (!(entryChar.length() == 1 && Character.isLetter(entryChar.charAt(0)))) {
+                    throw new SingleCharacterException();
+                } else {
+                    charOk = true;
+                }
+            } catch (SingleCharacterException e) {
+                System.out.println("Error: " + e.getMessage());
+            }
         }
+        return entryChar.charAt(0);
     }
 
+
     public static String readString(String message) {
-        System.out.println(message);
-        String input = sn.nextLine().trim();
-        if (!input.matches("[A-Za-zÀ-ÖØ-öø-ÿ\\s]+")) {
-            throw new InputMismatchException("Only letters and spaces.");
+        boolean stringOk = false;
+        String entryString = "";
+        while (!stringOk) {
+            try {
+                System.out.println(message);
+                entryString = sn.nextLine().trim();
+                if (!entryString.matches("[A-Za-zÀ-ÖØ-öø-ÿ\\s]+")) {
+                    throw new StringLettersException();
+                } else {
+                    stringOk = true;
+                }
+            } catch (StringLettersException e) {
+                System.out.println("Error: " + e);
+            }
         }
-        return input;
+        return entryString;
     }
 
     public static boolean readYesNo(String message) {
-        System.out.println(message + " (y/n): ");
-        String input = sn.nextLine().trim().toLowerCase();
-
-        if (input.equals("y")) {
-            return true;
-        } else if (input.equals("n")) {
-            return false;
-        } else {
-            throw new InputMismatchException("Insert 'y' for yes or 'n' for no.");
+                boolean booleanOk = false;
+                boolean booleanYesNo = false;
+        while (!booleanOk) {
+            try {
+                System.out.println(message + " (y/n): ");
+                String entryBoolean = sn.nextLine().trim().toLowerCase();
+                if (entryBoolean.equals("y")) {
+                    booleanYesNo = true;
+                } else if (entryBoolean.equals("n")) {
+                    booleanYesNo = false;
+                } else {
+                    throw new BooleanException();
+                }
+            } catch (BooleanException e) {
+                System.out.println("Error: " + e.getMessage());
+            }
         }
+        return booleanYesNo;
     }
+
 }

@@ -7,5 +7,7 @@ public class Main {
         Questions.firstLetterQuestion();
         Questions.cityQuestion();
         Questions.coffeeQuestion();
-   }
+
+
+    }
 }
