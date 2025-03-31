@@ -107,7 +107,7 @@ public class Entrance {
                     stringOk = true;
                 }
             } catch (StringLettersException e) {
-                System.out.println("Error: " + e);
+                System.out.println("Error: " + e.getMessage());
             }
         }
         return entryString;
